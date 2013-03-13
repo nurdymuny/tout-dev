@@ -18,12 +18,11 @@
 
   %body
     %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
-      %div{"data-role" => "header"}
-        %h1 Hello!
+      =haml :'layouts/_header', :layout => false
 
       %div{"data-role" => "content"}
         -# Page content gets rendered here
-        = yield(:content)
+        =yield(:content)
 
       %div{"data-role" => "footer", "data-position" => "fixed"}
 
