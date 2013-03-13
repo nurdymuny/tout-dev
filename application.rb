@@ -49,9 +49,9 @@ class Application < Sinatra::Application
   get ('/') { haml :index }
 
   # account
-  get '/account' do
+  get '/profile' do
     "Hello World" 
-    haml :'users/account'
+    haml :'users/show'
   end
 
   # assets
