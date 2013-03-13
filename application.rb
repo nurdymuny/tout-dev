@@ -50,9 +50,7 @@ class Application < Sinatra::Application
 
   # list
   post '/' do
-    begin
-
-
+    
     haml :list
   end
 
@@ -77,7 +75,7 @@ class Application < Sinatra::Application
 end
 
 
-__END__
+#__END__
 
 
 
