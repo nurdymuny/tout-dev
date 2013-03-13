@@ -75,7 +75,7 @@ class Application < Sinatra::Application
 end
 
 
-#__END__
+__END__
 
 
 
