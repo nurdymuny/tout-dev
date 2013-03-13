@@ -48,10 +48,10 @@ class Application < Sinatra::Application
   # index
   get ('/') { haml :index }
 
-  # list
-  post '/' do
-    
-    haml :list
+  # account
+  get '/account' do
+    "Hello World" 
+    haml :'users/account'
   end
 
   # assets
