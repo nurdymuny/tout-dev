@@ -16,8 +16,8 @@
     = stylesheets_tag
     = javascripts_tag
 
-  %body{:id => "#{@page_id}"}
-    #main-content{:role => "main", "data-role" => "page"}
+  %body
+    %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}"}}
       %div{"data-role" => "header"}
         %h1 Middleman!
 

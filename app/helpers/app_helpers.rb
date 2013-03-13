@@ -19,6 +19,13 @@ module Sinatra
         '<script src="/assets/application.js" type="text/javascript"></script>'
       end
     end
+  end
 
+  module MobileConcerns
+    module MobileHelpers
+      def mobile_page_id(path = request.path)
+        path.sub(/\A\/mobile\//,'').gsub("/",'_')
+      end
+    end
   end
 end

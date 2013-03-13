@@ -8,13 +8,13 @@ require 'haml'
 require 'sass'
 require 'coffee-script'
 require 'compass'
-require './app/helpers/assets_helpers'
-
+require './app/helpers/app_helpers'
 
 # Application::::::::::::::::::::::::::::::::::::::::::::::::::::::
 class Application < Sinatra::Application
 
   include Sinatra::AssetHelpers
+  include Sinatra::MobileConcerns
 
   register Sinatra::Flash
 
