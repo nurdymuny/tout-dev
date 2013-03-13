@@ -46,12 +46,12 @@ class Application < Sinatra::Application
 
   # Route Handlers::::::::::::::::::::::::::::::::::::::::::::::::
   # index
-  get ('/') { haml :index }
+  get ('/') { haml :index, layout:false }
 
   # account
   get '/profile' do
     "Hello World" 
-    haml :'users/show'
+    haml :'users/_profile'
   end
 
   # assets

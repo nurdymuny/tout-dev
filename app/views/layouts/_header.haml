@@ -1,2 +1,38 @@
-%div{"data-role" => "header"}
-  %h1 Hello!
+%div{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
+  .header-block
+    %strong.logo
+      %a{:href => '#'}= 'TOUT'
+      %ul.btn-block
+        %li.active
+          %a{:href => '#state1'}
+        %li
+          %a{:href => '#state2'}
+  .header-section
+    .header-box
+      .img-box.mark
+        %a{:href => '#'}
+          %img{:src => 'images/img18.jpg', :width => '51', :height => '51', :alt => 'image description'}
+      .link-holder
+        %a.follow-link{:href => '#'}
+          %span.mark= '+'
+          Follow
+      .text-holder
+        %h1
+          %a{:href => '#'}= 'Lorem ipsum dolor'
+          %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+    .tabset
+      %li.active
+        %a.tab{:href => '#tab-1'}
+          %span= '271'
+          Touts
+          %em.arrow
+      %li
+        %a.tab{:href => '#tab-2'}
+          %span= '41783'
+          Followers
+          %em.arrow
+      %li
+        %a.tab{:href => '#tab-3'}
+          %span= '171'
+          Following
+          %em.arrow
