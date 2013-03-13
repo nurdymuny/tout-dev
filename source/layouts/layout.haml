@@ -10,9 +10,10 @@
 
     -# Place favicon.ico and apple-touch-icon.png in the root directory: tout-dev/notes/touch-icons
 
-    %link{:rel => "stylesheet", :href => "http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"}
-    %script{:defer => "defer", :src => "http://code.jquery.com/jquery-1.6.4.min.js"}
-    %script{:defer => "defer", :src => "http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"}
+    %link{:rel => "stylesheet", :href => "javascripts/mylibs/jquery.mobile-1.3.0/jquery.mobile-1.3.0.css"}
+    %link{:rel => "stylesheet", :href => "stylesheets/screen.css"}
+    %script{:src => "javascripts/mylibs/jquery-1.9.1.min.js"}
+    %script{:src => "javascripts/mylibs/jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.js"}
 
   %body{:id => "#{@page_id}"}
     #main-content{:role => "main", "data-role" => "page"}
@@ -21,7 +22,7 @@
 
       %div{"data-role" => "content"}
         -# Page content gets rendered here
-        = yield
+        = yield(:layout)
 
       %div{"data-role" => "footer", "data-position" => "fixed"}
 
