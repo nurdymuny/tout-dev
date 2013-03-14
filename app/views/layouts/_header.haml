@@ -10,28 +10,29 @@
   .header-section
     .header-box
       .img-box.mark
-        %a{:href => '#'}
-          =image_tag "assets/img18.jpg", :alt => 'image description'
+        =link_to "", '#' do
+          =image_tag "/assets/img18.jpg", :alt => 'image description', :width => '51', :height => '51'
       .link-holder
-        = link_to("Follow", '#', :class => "follow-link") do
+        =link_to '#', :class => "follow-link" do
+          Follow
           %span.mark= '+'
       .text-holder
         %h1
-          %a{:href => '#'}= 'Lorem ipsum dolor'
-          %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+          =link_to "Lorem ipsum dolor", '#'
+        %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
     .tabset
       %li.active
-        %a.tab{:href => '#tab-1'}
+        =link_to('#tab-1', :class => 'tab') do
+          Tout
           %span= '271'
-          Touts
           %em.arrow
       %li
-        %a.tab{:href => '#tab-2'}
-          %span= '41783'
+        =link_to('#tab-2', :class => 'tab') do
           Followers
+          %span= '417883'
           %em.arrow
       %li
-        %a.tab{:href => '#tab-3'}
-          %span= '171'
+        =link_to('#tab-3', :class => 'tab') do
           Following
+          %span= '171'
           %em.arrow
