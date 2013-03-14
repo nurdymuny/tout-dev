@@ -18,10 +18,11 @@
 
   %body
     %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
-      =haml :'layouts/_header', :layout => false
+      //= haml :'layouts/_header', :layout => false
+      = partial :"layouts/header"
 
       %div{:id => "main", "data-role" => "content"}
         -# Page content gets rendered here
-        =yield(:content)
+        = yield(:content)
 
 

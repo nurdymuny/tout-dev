@@ -9,17 +9,21 @@ require 'sass'
 require 'coffee-script'
 require 'compass'
 require 'padrino-helpers'
+require 'sinatra/partial'
 require './app/helpers/app_helpers'
 
 # Application::::::::::::::::::::::::::::::::::::::::::::::::::::::
-class Application < Sinatra::Application
+class Application < Sinatra::Base
 
   include Sinatra::AssetHelpers
 
   register Sinatra::Flash
   register Padrino::Helpers
+  register Sinatra::Partial
 
   # Config::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  set :partial_template_engine, :haml
+  enable :partial_underscores
   set :static, true
   set :root, File.dirname(__FILE__)
   set :sprockets, (Sprockets::Environment.new(root) { |env| env.logger = Logger.new(STDOUT) })

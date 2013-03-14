@@ -20,6 +20,7 @@ group :development do
   gem 'yui-compressor'
   gem 'uglifier'
   gem 'padrino-helpers'
+  gem 'sinatra-partial'
 end
 
 group :production do
