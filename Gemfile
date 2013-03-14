@@ -20,6 +20,7 @@ group :development do
   gem 'compass'
   gem 'yui-compressor'
   gem 'uglifier'
+  gem 'sinatra-static-assets'
 end
 
 group :production do
