@@ -11,7 +11,6 @@ group :development do
   gem 'foreman'
   gem 'rb-fsevent'
   gem 'sinatra'
-  gem 'sinatra-static-assets'
   gem 'sinatra-flash'
   gem 'sprockets'
   gem 'coffee-script'
