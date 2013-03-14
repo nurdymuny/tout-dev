@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 
 group :development do
   gem 'guard-shotgun', :git => 'https://github.com/rchampourlier/guard-shotgun.git'
@@ -32,5 +32,5 @@ group :production do
   gem 'sass'
   gem 'haml'
   gem 'compass'
-  gem 'padrino-helper'
+  gem 'padrino-helpers'
 end
