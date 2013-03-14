@@ -14,10 +14,10 @@
     %script{:src => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js'}
 
     = stylesheets_tag
-    = javascripts_tag
+    //= javascripts_tag
 
   %body
-    %div{:id => "{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
+    %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
       =haml :'layouts/_header', :layout => false
 
       %div{:id => "main", "data-role" => "content"}

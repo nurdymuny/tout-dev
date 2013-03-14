@@ -15,7 +15,6 @@ require './app/helpers/app_helpers'
 class Application < Sinatra::Application
 
   include Sinatra::AssetHelpers
-  include Sinatra::MobileConcerns
 
   register Sinatra::Flash
   register Padrino::Helpers
