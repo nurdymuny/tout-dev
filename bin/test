@@ -1,0 +1,5 @@
+require 'itout'
+
+client_id = ENV["CLIENT_ID"]
+
+# client init and auth

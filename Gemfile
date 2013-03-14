@@ -1,8 +1,8 @@
 source :rubygems
 
-gem "middleman", "~>2.0.14"
+gem 'rake'
+gem 'yard'
 
-group :assets do
-  gem 'compass-rails'
-  gem 'compass-jquery-mobile-plugin'
+group :development do
+  
 end
