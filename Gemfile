@@ -32,4 +32,5 @@ group :production do
   gem 'sass'
   gem 'haml'
   gem 'compass'
+  gem 'padrino-helper'
 end
