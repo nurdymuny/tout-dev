@@ -11,11 +11,10 @@
     .header-box
       .img-box.mark
         %a{:href => '#'}
-          =image_tag("assets/img18.jpg", :alt => 'image description')
+          =image_tag "assets/img18.jpg", :alt => 'image description'
       .link-holder
-        %a.follow-link{:href => '#'}
+        = link_to("Follow", '#', :class => "follow-link") do
           %span.mark= '+'
-          Follow
       .text-holder
         %h1
           %a{:href => '#'}= 'Lorem ipsum dolor'

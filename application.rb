@@ -8,7 +8,7 @@ require 'haml'
 require 'sass'
 require 'coffee-script'
 require 'compass'
-require 'sinatra/static_assets'
+require 'padrino-helpers'
 require './app/helpers/app_helpers'
 
 # Application::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -18,7 +18,7 @@ class Application < Sinatra::Application
   include Sinatra::MobileConcerns
 
   register Sinatra::Flash
-  register Sinatra::StaticAssets
+  register Padrino::Helpers
 
   # Config::::::::::::::::::::::::::::::::::::::::::::::::::::::::
   set :static, true

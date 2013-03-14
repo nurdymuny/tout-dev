@@ -20,7 +20,7 @@ group :development do
   gem 'compass'
   gem 'yui-compressor'
   gem 'uglifier'
-  gem 'sinatra-static-assets'
+  gem 'padrino-helpers'
 end
 
 group :production do
