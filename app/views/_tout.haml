@@ -11,8 +11,12 @@
     %em.time 2 min
   / placeholder
   .video-block
-    =image_tag '/assets/img09.jpg', :alt => 'image description', :width => '288', :height => '101'
-    =link_to "", '#', :class => 'btn-play'
+    <video id="my_video_1" class="video-js vjs-default-skin" controls
+    preload="auto" width="640" height="264" poster="my_video_poster.png"
+    data-setup="{}">
+    <source src="my_video.mp4" type='video/mp4'>
+    <source src="my_video.webm" type='video/webm'>
+    </video>
   / btn-holder
   .btn-holder
     %span.reply-link
@@ -32,11 +36,14 @@
       %h2
         =link_to "Alan Murray", '#'
       %p Thanks you guys for all the bday wishes...
-    %em.time 2 min
-  / placeholder
   .video-block
-    =image_tag '/assets/img09.jpg', :alt => 'image description', :width => '288', :height => '101'
-    =link_to "", '#', :class => 'btn-play'
+    <video id="my_video_1" class="video-js vjs-default-skin" controls
+    preload="auto" width="640" height="264" poster="my_video_poster.png"
+    data-setup="{}">
+    <source src="my_video.mp4" type='video/mp4'>
+    <source src="my_video.webm" type='video/webm'>
+    </video>
+  %em.time 2 min
   / btn-holder
   .btn-holder
     %span.reply-link
