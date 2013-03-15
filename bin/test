@@ -1,5 +1,9 @@
 require 'itout'
 
 client_id = ENV["CLIENT_ID"]
-
-# client init and auth
+client_secret = ENV["CLIENT_SECRET"]
+callback_url = ENV["CALLBACK_URL"]
+user_email = ENV['API_TEST_CLIENT_USER_EMAIL']
+password = ENV['API_TEST_CLIENT_USER_PASSWORD']
+auth_site = ENV['AUTH_SITE']
+uri_host = ENV['URI_HOST']

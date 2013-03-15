@@ -1,19 +1,19 @@
 require_relative './collection'
-require_relative './user'
+require_relative './tout'
 
 module ITout
-  class Users < Collection
+  class Touts < Collection
 
     def klass
-      ITout::User
+      ITout::Tout
     end
 
     def container_name
-      'users'
+      'touts'
     end
 
     def member_name
-      'user'
+      'tout'
     end
 
   end

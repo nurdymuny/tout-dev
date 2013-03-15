@@ -1,19 +1,19 @@
 require_relative './collection'
-require_relative './user'
+require_relative './hashtag'
 
 module ITout
-  class Users < Collection
+  class Hashtags < Collection
 
     def klass
-      ITout::User
+      ITout::Hashtag
     end
 
     def container_name
-      'users'
+      'hashtags'
     end
 
     def member_name
-      'user'
+      'hashtag'
     end
 
   end

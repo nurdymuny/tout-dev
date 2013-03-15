@@ -3,6 +3,11 @@ source :rubygems
 gem 'rake'
 gem 'yard'
 
-group :development do
+# Hash extensions
+gem 'hashie'
   
+group :development do
+  gem 'rspec'
+  gem 'timecop'
+  gem 'webmock'
 end
