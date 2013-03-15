@@ -11,3 +11,5 @@ group :development do
   gem 'timecop'
   gem 'webmock'
 end
+
+gemspec
