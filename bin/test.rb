@@ -10,9 +10,6 @@ client = ITout.client(client_id, client_secret, callback_url, email:"tout@tout-d
 
 #p client.user_auth()
 p client.client_auth()
-
 p( "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-
 p client.retrieve_channel("world-wrestling-entertainment").followers_count
-
 p client.retrieve_channel("world-wrestling-entertainment").touts_count
