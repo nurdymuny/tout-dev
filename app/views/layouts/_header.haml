@@ -1,13 +1,17 @@
 %header{:id => 'header', :role => 'banner', :class => '', :data => {:role => 'header', :position => 'fixed'}}
+  / header-block
   .header-block
     %strong.logo
-      %a{:href => '#'}= 'TOUT'
+      =link_to "Tout", '#'
+      / btn-block
       %ul.btn-block
         %li.active
-          %a{:href => '#state1'}
+          =link_to "", '#state1'
         %li
-          %a{:href => '#state2'}
+          =link_to "", '#state2'
+  / header-section
   .header-section
+    / header-box
     .header-box
       .img-box.mark
         =link_to "", '#' do
@@ -20,9 +24,10 @@
         %h1
           =link_to "Lorem ipsum dolor", '#'
         %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+    / tabset
     .tabset
       %li.active
-        =link_to('#tab-1', :class => 'tab') do
+        =link_to('#tab-1', :class => 'tab ui-link') do
           Tout
           %span= '271'
           %em.arrow

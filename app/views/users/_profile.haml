@@ -1,36 +1,28 @@
 - @title = "user-profile"
 .tabs-holder
-  #state1.tab-001.active
-    %article.content-block.user
-      .holder
-        .img-box.dedicated
-          =link_to "", '#' do
-            =image_tag "/assets/img19.jpg", :width => '31', :height => '31', :alt => 'image description'
-        .text-holder
-          %h2
-            =link_to "Shaq", '#'
-          %p= 'One of my favorite songs by Alicia Keyes...'
-        %em.time= '1d'
-      .video-block
-        //=image_tag "/assets/img16.jpg", :width => '293', :height => '100', :alt => "image description"
-        %video{:id => 'sampleVideo', :width => '293', :height => '100', :src => 'http://videos.tout.com/watermark/mp4/9cb6ef3ff099a90de4bff1c650b10b0a.mp4', :preload => 'auto', :controls => 'controls', :type => 'video/mp4' }
-        =link_to "", '#', :class => 'btn-play'
-      .info-holder
-        =link_to "4", '#', :class => 'notes'
-        =link_to "20", '#', :class => 'likes'
-    %article.content-block.user.reply
-      .holder
-        .img-box.dedicated
-          =link_to "", '#' do
-            =image_tag "/assets/img19.jpg", :width => '31', :height => '31', :alt => 'image description'
-        .text-holder
-          %h2
-            =link_to "Shag", '#'
-        %em.time= '1d'
-      .video-block
-        =image_tag "/assets/img17.jpg", :width => '293', :height => '100', :alt => "image description"
-        =link_to "", '#', :class => 'btn-play'
-      .info-holder
-        =link_to "4", '#', :class => 'notes'
-        =link_to "20", '#', :class => 'likes'
-      =link_to "", '&#064;&#111;&#111;&#122;&#101;&#118;&#097;&#122;&#113;&#117;&#101;&#122;'
+  #tab-1.tab-content
+    #state1.tab-001.active
+      / content-block user
+      %article.content-block.user
+        .holder
+          .img-box.dedicated
+            =link_to "", '#' do
+              =image_tag '/assets/img19.jpg', :width => '31', :height => '31', :alt => 'image description'
+          .text-holder
+            %h2
+              =link_to "Shaq", '#'
+            %p One of my favorite songs by Alicia Keyes...
+          %em.time 1d
+        / placeholder
+        .video-block
+          <video id="my_video_1" class="video-js vjs-default-skin" controls
+          preload="auto" width="640" height="264" poster="my_video_poster.png"
+          data-setup="{}">
+          <source src="my_video.mp4" type='video/mp4'>
+          <source src="my_video.webm" type='video/webm'>
+          </video>
+        / info-holder
+        .info-holder
+          =link_to "4", '#', :class => 'notes'
+          =link_to "20", '#', :class => 'likes'
+
