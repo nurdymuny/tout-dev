@@ -37,6 +37,11 @@ module ITout
         ITout::Users.new.from_response(response)
       end
 
+      def retrieve_user_following(uid, order=nil, per_page=nil, page=nil)
+        response = get("/api/v1/users/#{uid}/following", query: {order: order, per_page: per_page, page: page})
+        ITout::Users.new.from_response(response)
+      end
+
       # implements http://developer.tout.com/api/users-api/apimethod/follow-user
       def follow_user(uid)
         post("/api/v1/users/#{uid}/follows")
