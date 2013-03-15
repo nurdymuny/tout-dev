@@ -34,4 +34,5 @@ group :production do
   gem 'haml'
   gem 'compass'
   gem 'padrino-helpers'
+  gem 'sinatra-partial'
 end

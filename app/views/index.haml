@@ -10,9 +10,12 @@
     %title= @title
 
     -# Place favicon.ico and apple-touch-icon.png in the root directory: tout-dev/notes/touch-icons
-    %link{:rel => 'stylesheet', :href => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css'}
-    %script{:src => 'http://code.jquery.com/jquery-1.6.2.min.js'}
-    %script{:src => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js'}
+    //%link{:rel => 'stylesheet', :href => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css'}
+
+    //= stylesheet_link_tag '/assets/stylesheets/all'
+
+    //%script{:src => 'http://code.jquery.com/jquery-1.6.2.min.js'}
+    //%script{:src => 'http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js'}
 
     = stylesheets_tag
     = javascripts_tag
@@ -30,7 +33,7 @@
             .btn-holder
               =link_to "Download the App", '#transparent', :class => 'link-download', 'aria-haspopup' => 'true', 'data-corners' => 'true', 'data-rel' => 'popup'
               / popup
-              #transparent.ui-content{"data-role" => "popup"}
+              .ui-content{:id => 'transparent', "data-role" => "popup"}
                 .title You need to Download The App
                 =link_to "Available on the App Store", '#home-page.html', :class => 'btn-app-store'
                 =link_to "close", 'home-page.html', :class => 'close'

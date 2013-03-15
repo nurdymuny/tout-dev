@@ -12,7 +12,8 @@
           %p= 'One of my favorite songs by Alicia Keyes...'
         %em.time= '1d'
       .video-block
-        =image_tag "/assets/img16.jpg", :width => '293', :height => '100', :alt => "image description"
+        //=image_tag "/assets/img16.jpg", :width => '293', :height => '100', :alt => "image description"
+        %video{:id => 'sampleVideo', :width => '293', :height => '100', :src => 'http://videos.tout.com/watermark/mp4/9cb6ef3ff099a90de4bff1c650b10b0a.mp4', :preload => 'auto', :controls => 'controls', :type => 'video/mp4' }
         =link_to "", '#', :class => 'btn-play'
       .info-holder
         =link_to "4", '#', :class => 'notes'
@@ -24,8 +25,7 @@
             =image_tag "/assets/img19.jpg", :width => '31', :height => '31', :alt => 'image description'
         .text-holder
           %h2
-            =link_to "", '#' do
-              =image_tag "/assets/img17.jpg", :width => '293', :height => '100', :alt => "image description"
+            =link_to "Shag", '#'
         %em.time= '1d'
       .video-block
         =image_tag "/assets/img17.jpg", :width => '293', :height => '100', :alt => "image description"
