@@ -2,7 +2,11 @@ require 'rubygems'
 require 'bundler'
 
 Bundler.require
+Bundler::GemHelper.install_tasks
 require './application'
+
+require 'yard'
+YARD::Rake::YardocTask.new
 
 namespace :assets do
   desc 'compile assets'
