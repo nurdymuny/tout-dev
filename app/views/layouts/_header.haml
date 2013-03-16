@@ -1,43 +1,10 @@
-%header{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
-  / header-block
-  .header-block
-    %strong.logo
-      =link_to "Tout", '#'
-    / btn-block
-    %ul.btn-block
-      %li.active
-        =link_to "", '#state1'
-      %li
-        =link_to "", '#state2'
-  / header-section
-  .header-section
-    / header-box
-    .header-box
-      .img-box.mark
-        =link_to "", '#' do
-          =image_tag "/assets/img18.jpg", :alt => 'image description', :width => '51', :height => '51'
-      .link-holder
-        =link_to '#', :class => "follow-link" do
-          Follow
-          %span.mark= '+'
-      .text-holder
-        %h1
-          =link_to "Lorem ipsum dolor", '#'
-        %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
-    / tabset
-    %ul.tabset
-      %li.active
-        =link_to('#tab-1', :class => 'tab') do
-          Tout
-          %span= '271'
-          %em.arrow
-      %li
-        =link_to('#tab-2', :class => 'tab') do
-          Followers
-          %span= '417883'
-          %em.arrow
-      %li
-        =link_to('#tab-3', :class => 'tab') do
-          Following
-          %span= '171'
-          %em.arrow
+/ header-block
+.header-block
+  %strong.logo
+    =link_to "Tout", '#'
+  / btn-block
+  %ul.btn-block
+    %li.active
+      =link_to "", '#state1'
+    %li
+      =link_to "", '#state2'
