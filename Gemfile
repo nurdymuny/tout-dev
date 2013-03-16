@@ -21,6 +21,13 @@ group :development do
   gem 'uglifier'
   gem 'padrino-helpers'
   gem 'sinatra-partial'
+  gem 'rake'
+  gem 'yard'
+  gem 'hashie'
+  gem 'rspec'
+  gem 'timecop'
+  gem 'webmock'
+  gemspec
 end
 
 group :production do
@@ -35,4 +42,8 @@ group :production do
   gem 'compass'
   gem 'padrino-helpers'
   gem 'sinatra-partial'
+  gem 'rake'
+  gem 'yard'
+  gem 'hashie'
+  gemspec
 end
