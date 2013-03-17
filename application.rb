@@ -106,8 +106,11 @@ class Application < Sinatra::Base
     @bio = user["bio"]
     @followers_count = user["followers_count"]
     @friends_count = user["friends_count"]
+    @touts_count = user["touts_count"]
     @avatar = user["avatar"]["small"]["http_url"]
-    @username = "@" + user["username"]
+    @username = user["username"]
+    @followers = client.retrieve_user_followers(params[:username])
+    @following = client.retrieve_user_following(params[:username])
     haml :'users/_users_profile'
   end
 
