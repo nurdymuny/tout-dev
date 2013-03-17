@@ -87,20 +87,20 @@ class Application < Sinatra::Base
   # index
   get '/' do 
     featured_touts = client.featured_touts({:per_page => 10, :page => 1})
-    @featured_touts = featured_touts.sort_by(&:created_at).reverse 
+    @touts = featured_touts.sort_by(&:created_at).reverse 
     haml :index, layout:false     
   end
 
   # account
   get '/my-profile' do
     featured_touts = client.featured_touts({:per_page => 10, :page => 1})
-    @featured_touts = featured_touts.sort_by(&:created_at).reverse
+    @touts = featured_touts.sort_by(&:created_at).reverse
     haml :'users/_my_profile'
   end
 
-  get '/users-profile' do
-    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
-    @featured_touts = featured_touts.sort_by(&:created_at).reverse
+  get '/users-profile/:username' do
+    user_touts = client.retrieve_user_touts(params[:username])
+    @touts = user_touts.sort_by(&:created_at).reverse
     haml :'users/_users_profile'
   end
 
