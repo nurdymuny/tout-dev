@@ -61,10 +61,10 @@ class Application < Sinatra::Base
 
   # Calculate time between current time and the tout time in either minutes, seconds, hours or days.
   
-  def tout_time(current_time, tout)
+  def tout_time(tout)
+    current_time = Time.now.utc
     tout = Time.parse(tout)
-    seconds = current_time - tout
-    seconds = seconds.to_i
+    seconds = (current_time - tout).to_i
     if seconds >= 60
       minutes = seconds / 60
       if minutes >= 60
@@ -87,7 +87,6 @@ class Application < Sinatra::Base
   # index
   get '/' do 
     @featured_touts = client.featured_touts({:per_page => 10, :page => 1}) 
-    @current_time = Time.now.utc
     haml :index, layout:false     
   end
 
