@@ -4,11 +4,12 @@
     .holder
       .img-box
         =link_to "", '#' do
-          =image_tag '/assets/img08.jpg', :alt => 'image description', :width => '26', :height => '26'
+          =image_tag f_tout.user.avatar.small.http_url, :alt => 'image description', :width => '26', :height => '26'
       .text-holder
         %h2
-          =link_to "Alan Murray", '#'
-        %p Thanks you guys for all the bday wishes...
+          =link_to f_tout.user.fullname, '#'
+        %p 
+          =f_tout.text
       %em.time 2 min
     / placeholder
     .video-block
