@@ -4,5 +4,5 @@ Bundler.require
 
 require './application'
 
-run Application
 
+run Application

@@ -4,6 +4,7 @@ require 'bundler'
 Bundler.require
 Bundler::GemHelper.install_tasks
 require './application'
+set :port => 80
 
 require 'yard'
 YARD::Rake::YardocTask.new
