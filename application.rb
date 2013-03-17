@@ -11,6 +11,7 @@ require 'compass'
 require 'padrino-helpers'
 require 'sinatra/partial'
 require './app/helpers/app_helpers'
+require 'itout'
 
 # Application::::::::::::::::::::::::::::::::::::::::::::::::::::::
 class Application < Sinatra::Base
@@ -20,6 +21,14 @@ class Application < Sinatra::Base
   register Sinatra::Flash
   register Padrino::Helpers
   register Sinatra::Partial
+  register ITout
+  
+  client_id = "80c5a655ad20e8819dc0cf580e5828cb5474cd5692c8b39acd5ea8410756cdde"
+  client_secret = "5ca12cb9a77f1d1c5ad0e8c6369d910a12862b2a8a138eaa152fcac931c8842c"
+  callback_url = "http://localhost:9292/login"
+  
+  client = ITout.client(client_id, client_secret, callback_url, email:"tout@tout-dev.me", password:"139townsend")  
+  client.client_auth()
 
   # Config::::::::::::::::::::::::::::::::::::::::::::::::::::::::
   set :partial_template_engine, :haml
@@ -31,7 +40,8 @@ class Application < Sinatra::Base
   set :assets_path, File.join(root, 'public', assets_prefix)
   set :compass_gem_root, Gem.loaded_specs['compass'].full_gem_path
   set :views, Proc.new { File.join(root, 'app', 'views') }
-
+  
+  
   configure do
     sprockets.append_path File.join(root, 'app', 'assets', 'stylesheets')
     sprockets.append_path File.join(compass_gem_root, 'frameworks', 'compass', 'stylesheets')
@@ -51,7 +61,10 @@ class Application < Sinatra::Base
 
   # Route Handlers::::::::::::::::::::::::::::::::::::::::::::::::
   # index
-  get ('/') { haml :index, layout:false }
+  get '/' do 
+    @featured_touts = client.featured_touts({:per_page => 10, :page => 1}) 
+    haml :index, layout:false     
+  end
 
   # account
   get '/profile' do
