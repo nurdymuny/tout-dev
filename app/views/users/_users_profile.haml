@@ -8,24 +8,11 @@
       / massonry-content
       .massonry-content
         .massonry-holder
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
-          .block
-            =link_to "", '#' do
-              =image_tag '/assets/img20.jpg',  :width => '98', :height => '133', :alt => 'image description'
+          -@touts.each_with_index do |f_tout, index|
+            .block
+              =link_to "", '#' do
+                =image_tag f_tout.image.thumbnail.http_url,  :width => '98', :height => '133', :alt => 'image description'
+
   #tab-2.tab-content
     %ul.list-people.user{'data-role' => 'listview'}
       - @followers.each_with_index do |u_follower, index|
