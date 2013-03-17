@@ -59,21 +59,58 @@ class Application < Sinatra::Base
     sprockets.js_compressor  = Uglifier.new(mangle: true)
   end
 
+  # Calculate time between current time and the tout time in either minutes, seconds, hours or days.
+  
+  def tout_time(tout)
+    current_time = Time.now.utc
+    tout = Time.parse(tout)
+    seconds = (current_time - tout).to_i
+    if seconds >= 60
+      minutes = seconds / 60
+      if minutes >= 60
+        hours = minutes / 60
+        if hours >= 24
+          days = hours / 24
+          return days.to_s + " days"
+        else
+          return hours.to_s + " hours"
+        end
+      else
+        return minutes.to_s + " mins"
+      end
+    else
+      return seconds.to_s + " seconds"
+    end
+  end
+
   # Route Handlers::::::::::::::::::::::::::::::::::::::::::::::::
   # index
   get '/' do 
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1}) 
+    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    @touts = featured_touts.sort_by(&:created_at).reverse 
     haml :index, layout:false     
   end
 
   # account
   get '/my-profile' do
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
-    haml :'users/_my_profile'
+    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    @touts = featured_touts.sort_by(&:created_at).reverse
+    haml :'users/_my_profile', layout:false
   end
 
-  get '/users-profile' do
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+  get '/users-profile/:username' do
+    user_touts = client.retrieve_user_touts(params[:username])
+    @touts = user_touts.sort_by(&:created_at).reverse
+    user = client.retrieve_user(params[:username])
+    @fullname = user["fullname"]
+    @bio = user["bio"]
+    @followers_count = user["followers_count"]
+    @friends_count = user["friends_count"]
+    @touts_count = user["touts_count"]
+    @avatar = user["avatar"]["small"]["http_url"]
+    @username = user["username"]
+    @followers = client.retrieve_user_followers(params[:username])
+    @following = client.retrieve_user_following(params[:username])
     haml :'users/_users_profile'
   end
 
@@ -81,6 +118,11 @@ class Application < Sinatra::Base
   get '/assets/application.js' do
     content_type('application/javascript')
     settings.sprockets['application.js']
+  end
+
+  get '/assets/masonry.js' do
+    content_type('application/javascript')
+    settings.sprockets['masonry.js']
   end
 
   get '/assets/application.css' do

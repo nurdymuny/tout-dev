@@ -1,4 +1,4 @@
-require 'logger'
+#require 'logger'
 require 'itout/client'
 
 module ITout
@@ -15,11 +15,11 @@ module ITout
       @client
     end
 
-    def logger(level=Logger::INFO)
-      @logger = Logger.new(STDOUT) unless defined?(@logger) and @logger.level != level
-      @logger.level = level
-      @logger
-    end
+    #def logger(level=Logger::INFO)
+     # @logger = Logger.new(STDOUT) unless defined?(@logger) and @logger.level != level
+      #@logger.level = level
+      #@logger
+    #end
 
   end
 end
