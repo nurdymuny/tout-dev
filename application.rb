@@ -120,6 +120,11 @@ class Application < Sinatra::Base
     settings.sprockets['application.js']
   end
 
+  get '/assets/masonry.js' do
+    content_type('application/javascript')
+    settings.sprockets['masonry.js']
+  end
+
   get '/assets/application.css' do
     content_type('text/css')
     settings.sprockets['application.css']
