@@ -1,32 +1,48 @@
 / header-section
 .header-section
-  / header-box
-  .header-box
-    .img-box.mark
-      =link_to "", '#' do
-        =image_tag "/assets/img18.jpg", :alt => 'image description', :width => '51', :height => '51'
-    .link-holder
-      =link_to '#', :class => "follow-link" do
-        Follow
-        %span.mark= '+'
-    .text-holder
-      %h1
-        =link_to "Lorem ipsum dolor", '#'
-      %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
-  / tabset
-  %ul.tabset
-    %li.active
-      =link_to('#tab-1', :class => 'tab') do
-        Tout
-        %span= '271'
-        %em.arrow
-    %li
-      =link_to('#tab-2', :class => 'tab') do
-        Followers
-        %span= '417883'
-        %em.arrow
-    %li
-      =link_to('#tab-3', :class => 'tab') do
-        Following
-        %span= '171'
-        %em.arrow
+  -# header-box
+    .header-box
+      .img-box.mark
+        =link_to "", '#' do
+          =image_tag "/assets/img18.jpg", :alt => 'image description', :width => '51', :height => '51'
+      .link-holder
+        =link_to '#', :class => "follow-link" do
+          Follow
+          %span.mark= '+'
+      .text-holder
+        %h1
+          =link_to "Lorem ipsum dolor", '#'
+        %p= 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+    / tabset
+    %ul.tabset
+      %li.active
+        =link_to('#tab-1', :class => 'tab') do
+          Tout
+          %span= '271'
+          %em.arrow
+      %li
+        =link_to('#tab-2', :class => 'tab') do
+          Followers
+          %span= '417883'
+          %em.arrow
+      %li
+        =link_to('#tab-3', :class => 'tab') do
+          Following
+          %span= '171'
+          %em.arrow
+  //if user signed in
+  .header-section
+    .gallery-block
+      .slideshow
+        .slideset
+          .slide.active
+            .placeholder
+              //=image_tag f_tout.user.avatar.small.http_url, :alt => 'image description', :width => '26', :height => '26'
+              =image_tag '/assets/img20.jpg', :width => '51', :height => '51', :alt => 'image description'
+            .text-holder
+              .title Brian Russel Davis
+              =link_to "&#064;&#097;&#115;&#105;&#109;&#112;&#115;&#111;&#110;", '#', :class => 'email'
+          .slide
+            .info-text
+              %p Im a writer, republican, and barista. I always stand in line for free popcorn. I’m into sports and pushing people around. San Francisco, CA
+          .switcher
