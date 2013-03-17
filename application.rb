@@ -95,7 +95,7 @@ class Application < Sinatra::Base
   get '/my-profile' do
     featured_touts = client.featured_touts({:per_page => 10, :page => 1})
     @touts = featured_touts.sort_by(&:created_at).reverse
-    haml :'users/_my_profile'
+    haml :'users/_my_profile', layout:false
   end
 
   get '/users-profile/:username' do
