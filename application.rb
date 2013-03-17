@@ -86,18 +86,21 @@ class Application < Sinatra::Base
   # Route Handlers::::::::::::::::::::::::::::::::::::::::::::::::
   # index
   get '/' do 
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1}) 
+    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    @featured_touts = featured_touts.sort_by(&:created_at).reverse 
     haml :index, layout:false     
   end
 
   # account
   get '/my-profile' do
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    @featured_touts = featured_touts.sort_by(&:created_at).reverse
     haml :'users/_my_profile'
   end
 
   get '/users-profile' do
-    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    @featured_touts = featured_touts.sort_by(&:created_at).reverse
     haml :'users/_users_profile'
   end
 
