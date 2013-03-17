@@ -11,9 +11,9 @@ module ITout
       body = {client_id: @client_id,
              client_secret: @client_secret,
              grant_type: "client_credentials"}
-      ITout.logger.info("ITout::OAuth   post-ing #{url} with params #{{body: body, headers: headers}}")
+      #ITout.logger.info("ITout::OAuth   post-ing #{url} with params #{{body: body, headers: headers}}")
       response = HTTParty.send(:post, url, body: body, headers: headers)
-      ITout.logger.debug("ITout::OAuth   #{url} response: #{response.code} #{response.body}")
+      #ITout.logger.debug("ITout::OAuth   #{url} response: #{response.code} #{response.body}")
 
       if response.code == 200 and JSON.parse(response.body)["access_token"] != nil
         @access_token = JSON.parse(response.body)["access_token"]
@@ -32,9 +32,9 @@ module ITout
               scope: "read write share",
               grant_type: "password"}.merge(opts)
 
-      ITout.logger.info("ITout::OAuth   post-ing #{url} with params #{{body: body, headers: headers}}")
+      #ITout.logger.info("ITout::OAuth   post-ing #{url} with params #{{body: body, headers: headers}}")
       response = HTTParty.send(:post, url, body: body, headers: headers)
-      ITout.logger.debug("ITout::OAuth   #{url} response: #{response.code} #{response.body}")
+      #ITout.logger.debug("ITout::OAuth   #{url} response: #{response.code} #{response.body}")
 
       if response.code == 200 and JSON.parse(response.body)["access_token"] != nil
         @access_token = JSON.parse(response.body)["access_token"]

@@ -111,11 +111,11 @@ module ITout
       end
       payload = { 'tout[data]' => Faraday::UploadIO.new(params[:data], 'video/mp4')}.merge(params)
 
-      ITout.logger.info("ITout::Client   multipart post-ing #{uri.to_s} (content omitted)")
+      #ITout.logger.info("ITout::Client   multipart post-ing #{uri.to_s} (content omitted)")
       response = conn.post uri.to_s, payload
 
       if !response.status =~ /20[0-9]/
-        ITout.logger.fatal("ITout::Client   multipart post-ing #{uri.to_s} #{response.code} #{response.parsed_response}")
+        #ITout.logger.fatal("ITout::Client   multipart post-ing #{uri.to_s} #{response.code} #{response.parsed_response}")
       end
       response
     end
@@ -130,14 +130,14 @@ module ITout
     def request(method, path, params={})
       uri = full_url(path)
 
-      ITout.logger.info("ITout::Client   #{method}-ing #{uri} with params #{params.merge(headers: headers)}")
+      #ITout.logger.info("ITout::Client   #{method}-ing #{uri} with params #{params.merge(headers: headers)}")
       response = HTTParty.send(method, uri, params.merge(headers: headers))
 
       if !response.code =~ /20[0-9]/
-        ITout.logger.fatal("ITout::Client   #{response.code} #{method}-ing #{uri.to_s} #{response.parsed_response}")
+        #ITout.logger.fatal("ITout::Client   #{response.code} #{method}-ing #{uri.to_s} #{response.parsed_response}")
       else
-        ITout.logger.info("ITout::Client   #{uri} response: #{response.code}")
-        ITout.logger.debug("ITout::Client   #{uri} response: #{response.body}")
+        #ITout.logger.info("ITout::Client   #{uri} response: #{response.code}")
+        #ITout.logger.debug("ITout::Client   #{uri} response: #{response.body}")
       end
       response
     end
