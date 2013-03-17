@@ -15,19 +15,21 @@
     / placeholder
     .video-block
       <video id="my_video_1" class="video-js vjs-default-skin" controls
-      preload="auto" width="293" height="100" poster="my_video_poster.png"
+      preload="none" width="293" height="100" poster="my_video_poster.png"
       data-setup="{}">
-      <source src="http://videos.tout.com/watermark/mp4/479e068f3900fb3f3a00152197ee9338.mp4" type='video/mp4'>
+      <source src="#{f_tout.video.mp4.http_url}" type='video/mp4'>
       //<source src="my_video.webm" type='video/webm'>
       </video>
     / btn-holder
     .btn-holder
       %span.reply-link
         =link_to "Reply", '#'
-        %em 0
+        %em
+          =f_tout.replies_count
       %span.like-link
         =link_to "like", '#'
-        %em 65
+        %em
+          =f_tout.likes_count
       =link_to "", '#', :class => 'link-back'
 
 / content-block
