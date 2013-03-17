@@ -31,31 +31,3 @@
         %em
           =f_tout.likes_count
       =link_to "", '#', :class => 'link-back'
-
-/ content-block
-%article.content-block
-  .holder
-    .img-box
-      =link_to "", '#' do
-        =image_tag '/assets/img08.jpg', :alt => 'image description', :width => '26', :height => '26'
-    .text-holder
-      %h2
-        =link_to "Alan Murray", '#'
-      %p Thanks you guys for all the bday wishes...
-  .video-block
-    <video id="my_video_1" class="video-js vjs-default-skin" controls
-    preload="auto" width="293" height="100" poster="my_video_poster.png"
-    data-setup="{}">
-    <source src="http://videos.tout.com/watermark/mp4/479e068f3900fb3f3a00152197ee9338.mp4" type='video/mp4'>
-    //<source src="my_video.webm" type='video/webm'>
-    </video>
-  %em.time 2 min
-  / btn-holder
-  .btn-holder
-    %span.reply-link
-      =link_to "Reply", '#'
-      %em 0
-    %span.like-link
-      =link_to "Like", '#'
-      %em 65
-    =link_to "", '#', :class => 'link-back'
