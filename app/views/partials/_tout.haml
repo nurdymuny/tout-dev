@@ -10,7 +10,8 @@
           =link_to f_tout.user.fullname, '#'
         %p 
           =f_tout.text
-      %em.time 2 min
+      %em.time
+        =tout_time(@current_time, f_tout.created_at)
     / placeholder
     .video-block
       <video id="my_video_1" class="video-js vjs-default-skin" controls

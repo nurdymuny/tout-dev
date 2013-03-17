@@ -59,10 +59,35 @@ class Application < Sinatra::Base
     sprockets.js_compressor  = Uglifier.new(mangle: true)
   end
 
+  # Calculate time between current time and the tout time in either minutes, seconds, hours or days.
+  
+  def tout_time(current_time, tout)
+    tout = Time.parse(tout)
+    seconds = current_time - tout
+    seconds = seconds.to_i
+    if seconds >= 60
+      minutes = seconds / 60
+      if minutes >= 60
+        hours = minutes / 60
+        if hours >= 24
+          days = hours / 24
+          return days.to_s + " days"
+        else
+          return hours.to_s + " hours"
+        end
+      else
+        return minutes.to_s + " mins"
+      end
+    else
+      return seconds.to_s + " seconds"
+    end
+  end
+
   # Route Handlers::::::::::::::::::::::::::::::::::::::::::::::::
   # index
   get '/' do 
     @featured_touts = client.featured_touts({:per_page => 10, :page => 1}) 
+    @current_time = Time.now.utc
     haml :index, layout:false     
   end
 
