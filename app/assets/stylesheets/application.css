@@ -1,4 +1,1 @@
-//= require 'jquery.mobile-1.2.0.min'
-//= require 'ipad'
-//= require 'iphone'
-//= require 'screen'
+//= require 'screen'//= require_tree .
