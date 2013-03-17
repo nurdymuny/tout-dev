@@ -6,8 +6,8 @@
   %body
     %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
       %header{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
-      = partial :"layouts/header_block"
-      = partial :"layouts/header_section"
+        = partial :"layouts/header_block"
+        = partial :"layouts/header_section"
 
       %div{:id => "main", "data-role" => "content"}
         = yield(:content)

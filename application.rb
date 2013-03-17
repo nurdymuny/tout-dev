@@ -67,9 +67,14 @@ class Application < Sinatra::Base
   end
 
   # account
-  get '/profile' do
-    "Hello World" 
-    haml :'users/_profile'
+  get '/my-profile' do
+    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    haml :'users/_my_profile'
+  end
+
+  get '/users-profile' do
+    @featured_touts = client.featured_touts({:per_page => 10, :page => 1})
+    haml :'users/_users_profile'
   end
 
   # assets
