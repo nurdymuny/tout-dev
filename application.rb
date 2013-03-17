@@ -101,6 +101,11 @@ class Application < Sinatra::Base
   get '/users-profile/:username' do
     user_touts = client.retrieve_user_touts(params[:username])
     @touts = user_touts.sort_by(&:created_at).reverse
+    user = client.retrieve_user(params[:username])
+    @username = user["fullname"]
+    @bio = user["bio"]
+    @followers_count = user["followers_count"]
+    @friends_count = user["friends_count"]
     haml :'users/_users_profile'
   end
 
