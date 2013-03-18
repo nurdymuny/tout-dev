@@ -7,7 +7,7 @@
           =image_tag f_tout.user.avatar.small.http_url, :alt => 'image description', :width => '26', :height => '26'
       .text-holder
         %h2
-          =link_to f_tout.user.fullname, 'http://64.207.178.146/users-profile/' + f_tout.user.username, :rel => 'external'
+          =link_to f_tout.user.fullname, 'http://64.207.178.146/users-profile/' + f_tout.user.username, :rel => 'external', :data {:transition => 'slide'}
         %p 
           =f_tout.text
       %em.time
