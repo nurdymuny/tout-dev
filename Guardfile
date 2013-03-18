@@ -10,6 +10,6 @@ guard 'livereload' do
   watch(%r{(app|vendor)/assets/\w+/(.+\.(stylesheets|javascripts|html)).*})  { |m| "/assets/#{m[2]}" }
 end
 
-guard 'shotgun', :port => 80 do
+guard 'shotgun', :port => 9292 do
   watch('./app/application.rb')
 end
