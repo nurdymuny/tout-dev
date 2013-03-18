@@ -16,17 +16,17 @@
   / tabset
   %ul.tabset
     %li.active
-      =link_to('#tab-1', :class => 'tab') do
+      =link_to('#tab-1' + @username, :class => 'tab') do
         Tout
         %span= @touts_count
         %em.arrow
     %li
-      =link_to('#tab-2', :class => 'tab') do
+      =link_to('#tab-2' + @username, :class => 'tab') do
         Followers
         %span= @followers_count
         %em.arrow
     %li
-      =link_to('#tab-3', :class => 'tab') do
+      =link_to('#tab-3' + @username, :class => 'tab') do
         Following
         %span= @friends_count
         %em.arrow

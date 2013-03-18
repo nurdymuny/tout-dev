@@ -7,7 +7,6 @@ require 'sprockets'
 require 'haml'
 require 'sass'
 require 'coffee-script'
-require 'compass'
 require 'padrino-helpers'
 require 'sinatra/partial'
 require './app/helpers/app_helpers'
@@ -39,12 +38,10 @@ class Application < Sinatra::Base
   set :sprockets, (Sprockets::Environment.new(root) { |env| env.logger = Logger.new(STDOUT) })
   set :assets_prefix, 'compiled'
   set :assets_path, File.join(root, 'public', assets_prefix)
-  set :compass_gem_root, Gem.loaded_specs['compass'].full_gem_path
   set :views, Proc.new { File.join(root, 'app', 'views') }
   
   configure do
     sprockets.append_path File.join(root, 'app', 'assets', 'stylesheets')
-    sprockets.append_path File.join(compass_gem_root, 'frameworks', 'compass', 'stylesheets')
     sprockets.append_path File.join(root, 'app', 'assets', 'javascripts')
     sprockets.append_path File.join(root, 'app', 'assets', 'images')
   end
@@ -117,12 +114,12 @@ class Application < Sinatra::Base
   # assets
   get '/assets/jquery.mobile-1.2.0.min.js' do
     content_type('application/javascript')
-    settings.sprockets['jquery.mobile-1.2.0.min.js']
+    settings.sprockets['jquery.mobile.js']
   end
 
   get '/assets/jquery-1.8.3.min.js' do
     content_type('application/javascript')
-    settings.sprockets['jquery-1.8.3.min.js']
+    settings.sprockets['jquery.js']
   end
  
   get '/assets/application.js' do

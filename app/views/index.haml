@@ -3,19 +3,11 @@
 %html{:lang => "en"}
   %head
     = partial :"partials/head"
-
+    %script{:src => '/assets/jquery-1.8.3.min.js'}
+    %script{:src => '/assets/jquery.mobile-1.2.0.min.js'}
   %body
-    :javascript
-      if(window.firstload === undefined) {
-        var script= document.createElement('script');
-        script.type= 'text/javascript';
-        script.src= 'http://vjs.zencdn.net/c/video.js';
-        var script2= document.createElement('script');
-        script2.type= 'text/javascript';
-        script2.src= '/assets/application.js';
-        document.body.appendChild(script2);
-        document.body.appendChild(script);
-      }
+    %script{:src => 'http://vjs.zencdn.net/c/video.js'}    
+    %script{:src => '/assets/application.js'}
     %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
 
       #main{"data-role" => "content"}

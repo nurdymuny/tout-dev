@@ -1,9 +1,12 @@
+%script{:src => 'http://vjs.zencdn.net/c/video.js'}
+%script{:src => '/assets/masonry.js'}
+%script{:src => '/assets/application.js'}
 - @title = "user-profile"
 .tabs-holder
-  #tab-1.tab-content
-    #state1.tab-001.active
+  %div{:id => "tab-1#{@username}", :class => "tab-content"}
+    %div{:id => "state1#{@username}", :class => "tab-001.active"}
       = partial :"partials/tout"
-    #state2.tab-002
+    %div{:id => "state2#{@username}", :class => "tab-002.active"}
       %h2 1 day ago
       / massonry-content
       .massonry-content
@@ -13,7 +16,7 @@
               =link_to "", '#' do
                 =image_tag f_tout.image.thumbnail.http_url,  :width => '98', :height => '133', :alt => 'image description'
 
-  #tab-2.tab-content
+  %div{:id => "tab-2#{@username}", :class => "tab-content"}
     %ul.list-people.user{'data-role' => 'listview'}
       - @followers.each_with_index do |u_follower, index|
         %li
@@ -29,7 +32,7 @@
                 =u_follower.username
             %p= u_follower.location
        
-  #tab-3.tab-content
+  %div{:id => "tab-3#{@username}", :class => "tab-content"}
     /list-people
     %ul.list-people.user.add{'data-role' => 'listview'}
       - @following.each do |u_following|
