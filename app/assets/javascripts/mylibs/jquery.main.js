@@ -1,10 +1,11 @@
 // page init
 jQuery(function(){
-//	initTabs();
+        initTabs();
+        initChangeState();
 });
 jQuery(window).load(function(){
-        initTabs();
-	initChangeState();
+        //initTabs();
+	//initChangeState();
 });
 
 // content tabs init
