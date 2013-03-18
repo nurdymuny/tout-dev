@@ -115,6 +115,16 @@ class Application < Sinatra::Base
   end
 
   # assets
+  get '/assets/jquery.mobile-1.2.0.min.js' do
+    content_type('application/javascript')
+    settings.sprockets['jquery.mobile-1.2.0.min.js']
+  end
+
+  get '/assets/jquery-1.8.3.min.js' do
+    content_type('application/javascript')
+    settings.sprockets['jquery-1.8.3.min.js']
+  end
+ 
   get '/assets/application.js' do
     content_type('application/javascript')
     settings.sprockets['application.js']

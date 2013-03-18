@@ -3,6 +3,17 @@
   %head
     = partial :"partials/head"
   %body
+    :javascript
+      if(window.firstload === undefined) {
+        var script= document.createElement('script');
+        script.type= 'text/javascript';
+        script.src= 'http://vjs.zencdn.net/c/video.js';
+        var script2= document.createElement('script');
+        script2.type= 'text/javascript';
+        script2.src= '/assets/application.js';
+        document.body.appendChild(script2);
+        document.body.appendChild(script);
+      }
     %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
       %header{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
         = partial :"layouts/header_block"
