@@ -5,12 +5,13 @@
     %script{:src => '/assets/jquery-1.8.3.min.js'}
     %script{:src => '/assets/jquery.mobile-1.2.0.min.js'}    
   %body
-    %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
-      %header{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
-        = partial :"layouts/header_block"
-        = partial :"layouts/header_section"
+    %span{:id => "fastclick"}
+      %div{:id => "#{@mobile_page_id}", :data => {:role => 'page', :title => "#{@title}", 'add-back-btn' => 'true'}}
+        %header{:id => 'header', :class => 'special-tab', :data => {:role => 'header', :position => 'fixed'}}
+          = partial :"layouts/header_block"
+          = partial :"layouts/header_section"
 
-      %div{:id => "main", "data-role" => "content"}
-        = yield(:content)
+        %div{:id => "main", "data-role" => "content"}
+          = yield(:content)
 
 

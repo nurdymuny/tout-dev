@@ -96,7 +96,7 @@ class Application < Sinatra::Base
   end
 
   get '/users-profile/:username' do
-    user_touts = client.retrieve_user_touts(params[:username])
+    user_touts = client.retrieve_user_touts(params[:username], "most_recent_first", 10, 1)
     @touts = user_touts.sort_by(&:created_at).reverse
     user = client.retrieve_user(params[:username])
     @fullname = user["fullname"]

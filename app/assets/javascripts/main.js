@@ -1,5 +1,6 @@
 // page init
 $(function(){
+        initFastButtons();
         initTabs();
         initChangeState();
 });
@@ -100,8 +101,8 @@ function initTabs() {
 			autoHeight:false,
 			autoRotate:false,
 			checkHash:false,
-			animSpeed:400,
-			switchTime:3000,
+			animSpeed:200,
+			switchTime:1000,
 			effect: 'none', // "fade", "slide"
 			tabLinks:'a',
 			attrib:'href',
@@ -551,3 +552,91 @@ PlatformDetect.addRule({type: 'ipad', css: 'ipad.css'});
 
 // retina.js, a high-resolution image swapper (http://retinajs.com), v0.0.2
 ;(function(){function t(e){this.path=e;var t=this.path.split("."),n=t.slice(0,t.length-1).join("."),r=t[t.length-1];this.at_2x_path=n+"@2x."+r}function n(e){this.el=e,this.path=new t(this.el.getAttribute("src"));var n=this;this.path.check_2x_variant(function(e){e&&n.swap()})}var e=typeof exports=="undefined"?window:exports;e.RetinaImagePath=t,t.confirmed_paths=[],t.prototype.is_external=function(){return!!this.path.match(/^https?\:/i)&&!this.path.match("//"+document.domain)},t.prototype.check_2x_variant=function(e){var n,r=this;if(this.is_external())return e(!1);if(this.at_2x_path in t.confirmed_paths)return e(!0);n=new XMLHttpRequest,n.open("HEAD",this.at_2x_path),n.onreadystatechange=function(){return n.readyState!=4?e(!1):n.status>=200&&n.status<=399?(t.confirmed_paths.push(r.at_2x_path),e(!0)):e(!1)},n.send()},e.RetinaImage=n,n.prototype.swap=function(e){function n(){t.el.complete?(t.el.setAttribute("width",t.el.offsetWidth),t.el.setAttribute("height",t.el.offsetHeight),t.el.setAttribute("src",e)):setTimeout(n,5)}typeof e=="undefined"&&(e=this.path.at_2x_path);var t=this;n()},e.devicePixelRatio>1&&(window.onload=function(){var e=document.getElementsByTagName("img"),t=[],r,i;for(r=0;r<e.length;r++)i=e[r],t.push(new n(i))})})();
+
+
+//======================================================== FASTCLICK
+         function FastButton(element, handler) {
+            this.element = element;
+            this.handler = handler;
+            element.addEventListener('touchstart', this, false);
+         };
+         FastButton.prototype.handleEvent = function(event) {
+            switch (event.type) {
+               case 'touchstart': this.onTouchStart(event); break;
+               case 'touchmove': this.onTouchMove(event); break;
+               case 'touchend': this.onClick(event); break;
+               case 'click': this.onClick(event); break;
+            }
+         };
+         FastButton.prototype.onTouchStart = function(event) {
+			//event.stopPropagation();
+            this.element.addEventListener('touchend', this, false);
+            document.body.addEventListener('touchmove', this, false);
+            this.startX = event.touches[0].clientX;
+            this.startY = event.touches[0].clientY;
+			//isMoving = false;
+         };
+         FastButton.prototype.onTouchMove = function(event) {
+            if(Math.abs(event.touches[0].clientX - this.startX) > 10 || Math.abs(event.touches[0].clientY - this.startY) > 10) {
+               this.reset();
+            }
+         };
+         FastButton.prototype.onClick = function(event) {
+			event.stopPropagation();
+            this.reset();
+            this.handler(event);
+            if(event.type == 'touchend') {
+               preventGhostClick(this.startX, this.startY);
+            }
+         };
+         FastButton.prototype.reset = function() {
+            this.element.removeEventListener('touchend', this, false);
+            document.body.removeEventListener('touchmove', this, false);			
+         };
+         function preventGhostClick(x, y) {
+            coordinates.push(x, y);
+            window.setTimeout(gpop, 2500);
+         };
+         function gpop() {
+            coordinates.splice(0, 2);
+         };
+         function gonClick(event) {
+            for(var i = 0; i < coordinates.length; i += 2) {
+               var x = coordinates[i];
+               var y = coordinates[i + 1];
+               if(Math.abs(event.clientX - x) < 25 && Math.abs(event.clientY - y) < 25) {
+                  event.stopPropagation();
+                  event.preventDefault();
+               }
+            }
+         };
+         document.addEventListener('click', gonClick, true);
+         var coordinates = [];
+         function initFastButtons() {
+			new FastButton(document.getElementById("fastclick"), goSomewhere);
+         };
+         function goSomewhere() {
+			var theTarget = document.elementFromPoint(this.startX, this.startY);
+			if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
+			
+			var theParent = theTarget;
+			
+			// Set button style back to normal
+			while (theParent.tagName !== "LI") {										// Keep looking for the parent element until we hit the LI. That takes care of both buttons and list items
+				if (theParent.tagName === "FORM" || theParent.tagName === "BODY" ) {
+					break;
+				}
+				theParent = theParent.parentNode;
+				if (theParent.className.indexOf("ui-btn-down-a") !== -1) {				// If the button class A is a button down, then
+					theParent.className = theParent.className.replace("ui-btn-down-a","ui-btn-up-a");	// Make it button up.
+				}
+				if (theParent.className.indexOf("ui-btn-down-d") !== -1) {				// If the button class D is a button down, then
+					theParent.className = theParent.className.replace("ui-btn-down-d","ui-btn-up-d");	// Make it button up.
+				}
+			}
+			// Slash set button style
+						
+			$(theTarget).trigger('click');
+         };
+//========================================================
+
